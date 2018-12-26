@@ -107,7 +107,7 @@ client.on("message", (message) => {
       let embed = new Discord.RichEmbed()
       .setColor('RANDOM')
       .setTitle(':mailbox_with_mail: about')
-      .setDescription(`I am ${client.user.username}, and I will try my best to help everyone! If I am in a discord server, people can use me to create tickets in order`)
+      .setDescription(` ${client.user.username}, مرحباَ انا بوت التكت الخاص في سيرفر Marex انا اساعد الناس في فتح تذاكر للمساعدة او تقديم طلب لأي شي `)
       .setFooter(`${client.user.username}`)
       message.author.sendEmbed(embed)
       }
