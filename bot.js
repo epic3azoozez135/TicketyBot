@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const prefix = "m!";
+const prefix = ".";
 
 
 
@@ -48,7 +48,7 @@ client.on("message", (message) => {
   if (message.content.toLowerCase().startsWith(prefix + `new`)) {
       const reason = message.content.split(" ").slice(1).join(" ");
       if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`هذا السيرفر ليس لديه \`Support Team\` صنع رتبة, لذلك لن يتم فتح التذكرة.\nاذا كنت تمتلك administrator, إنشاء اسم بهذا الاسم بالضبط وإعطائه للمستخدمين الذين يمكنهم مشاهدة التذاكر.`);
-      if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`انت بالفعل لديك تذكره مفتوحه.`);
+      if (message.guild.channels.exists("name", "ticket-" + ${client.user.username} )) return message.channel.send(`انت بالفعل لديك تذكره مفتوحه.`);
       message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
           let role = message.guild.roles.find("name", "Support Team");
           let role2 = message.guild.roles.find("name", "@everyone");
@@ -80,9 +80,9 @@ client.on("message", (message) => {
   if (message.content.toLowerCase().startsWith(prefix + `close`)) {
       if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`لا يمكنك استخدام أمر الإغلاق خارج قناة التذاكر.`);
   
-      message.channel.send(`هل أنت متاكد؟ بمجرد تأكيد, لا يمكنك عكس هذا العمل!!\nللتأكيد ، اكتب \`m!confirm\`. سوف ينتهي المهلة خلال 10 ثوانٍ ويتم إلغاؤها.`)
+      message.channel.send(`هل أنت متاكد؟ بمجرد تأكيد, لا يمكنك عكس هذا العمل!!\nللتأكيد ، اكتب \`.confirm\`. سوف ينتهي المهلة خلال 10 ثوانٍ ويتم إلغاؤها.`)
       .then((m) => {
-        message.channel.awaitMessages(response => response.content === 'm!confirm', {
+        message.channel.awaitMessages(response => response.content === '.confirm', {
           max: 1,
           time: 10000,
           errors: ['time'],
