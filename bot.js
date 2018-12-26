@@ -4,18 +4,6 @@ const prefix = ".";
 
 
 
-
-
-//fun
-function clean(text) {
-    if (typeof(text) === "string")
-      return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-    else
-        return text;
-}
-
-
-//console & playing !
 client.on('ready', () => {
     console.log(`${client.user.tag} Is Online !`) 
     client.user.setGame(`${prefix}help`)
@@ -25,7 +13,6 @@ client.on('ready', () => {
 
 
 
-//commands !
 client.on("message", (message) => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
   
@@ -100,19 +87,7 @@ client.on("message", (message) => {
   
   });
   
-  client.on('message', message => {
-      if (message.content.startsWith(prefix + 'about')) {
-      if (message.author.bot) return
-      if (!message.guild) return message.reply('**:x: This Command Only In Server**')
-      let embed = new Discord.RichEmbed()
-      .setColor('RANDOM')
-      .setTitle(':mailbox_with_mail: about')
-      .setDescription(` ${client.user.username}, مرحباَ انا بوت التكت الخاص في سيرفر Marex انا اساعد الناس في فتح تذاكر للمساعدة او تقديم طلب لأي شي `)
-      .setFooter(`${client.user.username}`)
-      message.author.sendEmbed(embed)
-      }
-  });
-  
+
   
   
   
@@ -125,5 +100,5 @@ client.on("message", (message) => {
 
 
 
-///TOKEN
+
 client.login(process.env.BOT_TOKEN);
